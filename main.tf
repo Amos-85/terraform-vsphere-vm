@@ -132,6 +132,17 @@ resource "vsphere_virtual_machine" "Linux" {
       datastore_id     = length(var.data_disk_datastore) > 0 ? data.vsphere_datastore.data_disk_datastore[var.data_disk_datastore[terraform_disks.key]].id : null
     }
   }
+  ovf_deploy {
+    local_ovf_path            = var.ovf_local_ovf_path
+    remote_ovf_url            = var.ovf_remote_ovf_url
+    allow_unverified_ssl_cert = var.ovf_allow_unverified_ssl_cert
+    disk_provisioning         = var.ovf_disk_provisioning
+    ip_protocol               = var.ovf_ip_protocol
+    ip_allocation_policy      = var.ovf_ip_allocation_policy
+  }
+  vapp {
+    properties = var.vapp_properties
+  }
 
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id

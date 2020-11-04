@@ -443,3 +443,45 @@ variable "force_power_off" {
   type        = bool
   default     = null
 }
+
+variable "ovf_local_ovf_path" {
+  description = "local file system path of ova file"
+  type        = string
+  default     = null
+}
+
+variable "ovf_remote_ovf_url" {
+  description = "remote url of ova file"
+  type        = string
+  default     = null
+}
+
+variable "ovf_allow_unverified_ssl_cert" {
+  description = "allow unverified ssl cert"
+  type        = bool
+  default     = false
+}
+
+variable "ovf_disk_provisioning" {
+  description = "disk provisioning type"
+  type        = string
+  default     = null
+}
+
+variable "ovf_ip_protocol" {
+  description = "ip protocol"
+  type        = string
+  default     = "IPV4"
+}
+
+variable "ovf_ip_allocation_policy" {
+  description = "ip allocation policy"
+  type        = string
+  default     = null
+}
+
+variable "vapp_properties" {
+  description = "ovf properties"
+  type        = map(string)
+  default     = null
+}

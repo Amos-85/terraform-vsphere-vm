@@ -13,3 +13,6 @@
 
 #VIM Junk
 *.un~
+
+# .idea files
+.idea
